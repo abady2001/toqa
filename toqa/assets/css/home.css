@@ -1,0 +1,54 @@
+
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    font-family: "Almarai";
+    font-weight:400 !important;
+    color:#E2AD5E !important;
+}
+
+body {
+    height: 100vh;
+    font-size: 20px;
+
+}
+
+p,h1,h2,h3,h4,h5,h6{
+    font-family: "Almarai" !important ;
+}
+
+.first{
+    background-color: #06543c;
+    padding-top: 114px;
+
+}
+
+.secondG{
+    background-color: #06543c;
+    padding: 150px 0px;
+    margin: 80px 0px;
+}
+.secondG h3{
+    line-height:180% !important;
+}
+
+
+.control-group ::placeholder{
+    color: #06543c !important;
+    font-size: 22px;
+
+}
+
+#contactForm button{
+    background-color: #06543c !important;
+}
+
+
+#placeEmail ::placeholder{
+    padding: 40px 0px;
+}
+
+.green{
+    background-color: #06543c !important;
+}

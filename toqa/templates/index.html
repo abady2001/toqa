@@ -1,0 +1,465 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+    <title>Home - تُـقى</title>
+    <link rel="stylesheet" href={%static '/bootstrap/css/bootstrap.min.css' %}>
+
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat:400,700&amp;display=swap">
+    <link rel="stylesheet"
+        href="https://fonts.googleapis.com/css?family=Lato:400,700,400italic,700italic&amp;display=swap">
+
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Almarai&amp;display=swap">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Amiri&amp;display=swap">
+
+    <link rel="stylesheet" href={%static '/fonts/font-awesome.min.css' %}>
+    <link rel="stylesheet" href={%static '/css/animate.min.css' %}>
+    <link rel="stylesheet" href={%static '/css/home.css' %}>
+
+    <link rel="stylesheet" href={%static '/css/header.css' %} type="text/css">
+
+    <link rel="stylesheet" href={%static "/css/footer.css" %} type="text/css">
+</head>
+
+<body id="page-top" data-bs-spy="scroll" data-bs-target="#mainNav" data-bs-offset="72">
+
+    <header class="text-center masthead first">
+        <nav class="navbar navbar-expand-lg fixed-top" id="mainNav">
+            <div class="container-fluid">
+
+                <div><a class="navbar-brand" href="{% url 'home' %}">
+                        <img id="logo" src="{%static '/img/toqalogo.png' %}" alt="logo">
+                    </a>
+                </div>
+
+
+                <button data-bs-toggle="collapse" data-bs-target="#navbarResponsive"
+                    class="navbar-toggler navbar-toggler-right rounded" aria-controls="navbarResponsive"
+                    aria-expanded="false" aria-label="Toggle navigation">
+                    <i class="fa fa-bars"></i>
+
+                </button>
+
+
+                <div class="collapse navbar-collapse text-center" id="navbarResponsive" dir="rtl">
+                    <ul class="navbar-nav ">
+
+                        <li class="nav-item "><a class="nav-link rounded" href="{% url 'home' %}#page-top">الرئيسة</a>
+                        </li>
+
+
+                        <li class="nav-item mx-0 mx-lg-1"><a
+                                class="nav-link text-center justify-content-center align-items-center align-content-center align-self-center mx-auto py-3 px-0 px-lg-3 rounded"
+                                href="{% url 'home' %}#portfolio">خدماتنا</a>
+                        </li>
+                        <li
+                            class="nav-item text-center justify-content-center align-items-center align-content-center align-self-center mx-auto mx-0 mx-lg-1">
+                            <a class="nav-link text-center justify-content-center align-items-center align-content-center align-self-center mx-auto py-3 px-0 px-lg-3 rounded"
+                                href="{% url 'home' %}#about">مَن تُقى؟</a>
+                        </li>
+                        <li
+                            class="nav-item text-center justify-content-center align-items-center align-content-center align-self-center mx-auto mx-0 mx-lg-1">
+                            <a class="nav-link text-center justify-content-center align-items-center align-content-center align-self-center mx-auto py-3 px-0 px-lg-3 rounded"
+                                href="{% url 'home' %}#contact">اتصل بنا</a>
+                        </li>
+
+
+                        {% if user.is_authenticated %}
+
+
+                        <li>
+                            <div class="dropdown ">
+                                <a class="active" href="#" role="button" id="dropdownMenuLink" data-bs-toggle="dropdown"
+                                    aria-expanded="false">
+                                    {{user.username}}
+                                </a>
+                                <ul class="dropdown-menu mt-3" aria-labelledby="dropdownMenuLink">
+
+
+                                    {% if user.is_staff %}
+
+                                    <li><a class="dropdown-item  text-center rounded" href="{% url 'teacher' %}">
+                                            لوحة التحكم </a></li>
+
+                                    {% if user.is_superuser%}
+                                    <li><a class="dropdown-item  text-center rounded" href="{% url 'manage' %}">
+                                            الإدارة</a></li>
+                                    {% endif %}
+
+                                    {%else%}
+
+                                    <li><a class="dropdown-item  text-center rounded">
+                                            صفحة الطالب </a></li>
+
+                                    {% endif %}
+
+
+                                    <li><a class="dropdown-item text-center rounded"> الملف الشخصي</a></li>
+
+                                    <li><a class="dropdown-item text-center rounded" href="{% url 'logout' %}">تسجيل
+                                            الخروج</a></li>
+
+                                </ul>
+                            </div>
+                        </li>
+
+                        {%else%}
+                        <li class="nav-item mx-0 mx-lg-1"><a
+                                class="nav-link text-center justify-content-center align-items-center align-content-center align-self-center mx-auto py-3 px-0 px-lg-3 rounded"
+                                href="{% url 'login' %}#login1">تسجيل الدخول</a></li>
+                        {%endif%}
+
+                    </ul>
+                </div>
+            </div>
+        </nav>
+
+
+        <div class="container"><img class="shadow-sm mx-auto mb-5" data-bss-hover-animate="bounce"
+                src="{%static '/img/toqalogo.png' %}" width="265" height="265" loading="eager">
+            <h2 class="mb-0">اقْرَأْ وَارْتَقِ</h2>
+        </div>
+    </header>
+
+
+    <section id="portfolio" class="portfolio" style="padding-bottom: 2px;margin-bottom: 100px;">
+        <div class="container">
+
+            <h2 class="text-center">خدماتنا</h2>
+            <h2 class="font-weight-light mb-0"
+                style="font-size: 25px; text-align: center;padding-bottom: 9px;margin-top: 10px;padding-top: 10px;">
+                للطلبة</h2>
+
+            <div class="row">
+                <div class="col-md-6 col-lg-4"><a class="d-block mx-auto portfolio-item" href="#portfolio-modal-1"
+                        data-bs-toggle="modal">
+                        <div class="d-flex portfolio-item-caption position-absolute h-100 w-100 green">
+                            <div class="text-center my-auto portfolio-item-caption-content w-100"><i
+                                    class="fa fa-search-plus fa-3x "></i>
+
+                            </div>
+                        </div>
+
+                        <img class="img-fluid" src="{%static '/img/portfolio/cabin.png' %}">
+                    </a>
+                    <h2 class="font-weight-light mb-0"
+                        style="font-size: 25px;text-align: center;margin-top: 10px;padding-top: 10px;margin-bottom: 7px;padding-bottom: 16px;">
+                        تقييمات</h2>
+                </div>
+                <div class="col-md-6 col-lg-4"><a class="d-block mx-auto portfolio-item" href="#portfolio-modal-2"
+                        data-bs-toggle="modal">
+                        <div class="d-flex portfolio-item-caption position-absolute h-100 w-100 green">
+                            <div class="text-center   my-auto portfolio-item-caption-content w-100"><i
+                                    class="fa fa-search-plus fa-3x"></i></div>
+                        </div><img class="img-fluid" src="{%static '/img/portfolio/cake.png' %}">
+                    </a>
+                    <h2 class="font-weight-light mb-0"
+                        style="font-size: 25px;text-align: center;margin-top: 10px;padding-top: 10px;margin-bottom: 7px;padding-bottom: 16px;">
+                        تصحيح تلاوة</h2>
+                </div>
+                <div class="col-md-6 col-lg-4"><a class="d-block mx-auto portfolio-item" href="#portfolio-modal-2"
+                        data-bs-toggle="modal">
+                        <div class="d-flex portfolio-item-caption position-absolute h-100 w-100 green">
+                            <div class="text-center   my-auto portfolio-item-caption-content w-100"><i
+                                    class="fa fa-search-plus fa-3x"></i></div>
+                        </div><img class="img-fluid" src="{%static '/img/portfolio/cake.png' %}">
+                    </a>
+                    <h2 class="font-weight-light mb-0"
+                        style="font-size: 25px;text-align: center;margin-top: 10px;padding-top: 10px;margin-bottom: 7px;padding-bottom: 16px;">
+                        تصحيح تلاوة</h2>
+                </div>
+
+            </div>
+
+            <hr style="margin-top: 39px;">
+
+
+
+            <h2 class="font-weight-light mb-0"
+                style="font-size: 25px;text-align: center;padding-bottom: 9px;margin-top: 0px;padding-top: 9px;">
+                للمعلمين</h2>
+            <div class="row" style="margin-top: 2px;padding-top: 0px;">
+                <div class="col-md-6 col-lg-4"><a class="d-block mx-auto portfolio-item" href="#portfolio-modal-1"
+                        data-bs-toggle="modal">
+                        <div class="d-flex portfolio-item-caption position-absolute h-100 w-100 green">
+                            <div class="text-center   my-auto portfolio-item-caption-content w-100"><i
+                                    class="fa fa-search-plus fa-3x"></i></div>
+                        </div><img class="img-fluid" src="{%static '/img/portfolio/cake.png' %}">
+                    </a>
+                    <h2 class="font-weight-light mb-0"
+                        style="font-size: 25px;text-align: center;margin-top: 10px;padding-top: 10px;margin-bottom: 7px;padding-bottom: 16px;">
+                        تقييمات</h2>
+                </div>
+                <div class="col-md-6 col-lg-4"><a class="d-block mx-auto portfolio-item" href="#portfolio-modal-2"
+                        data-bs-toggle="modal">
+                        <div class="d-flex portfolio-item-caption position-absolute h-100 w-100 green">
+                            <div class="text-center   my-auto portfolio-item-caption-content w-100"><i
+                                    class="fa fa-search-plus fa-3x"></i></div>
+                        </div><img class="img-fluid" src="{%static '/img/portfolio/cake.png' %}">
+                    </a>
+                    <h2 class="font-weight-light mb-0"
+                        style="font-size: 25px;text-align: center;margin-top: 10px;padding-top: 10px;margin-bottom: 7px;padding-bottom: 16px;">
+                        تصحيح تلاوة</h2>
+                </div>
+
+                <div class="col-md-6 col-lg-4"><a class="d-block mx-auto portfolio-item" href="#portfolio-modal-2"
+                        data-bs-toggle="modal">
+                        <div class="d-flex portfolio-item-caption position-absolute h-100 w-100 green">
+                            <div class="text-center   my-auto portfolio-item-caption-content w-100"><i
+                                    class="fa fa-search-plus fa-3x"></i></div>
+                        </div><img class="img-fluid" src="{%static '/img/portfolio/cake.png' %}">
+                    </a>
+                    <h2 class="font-weight-light mb-0"
+                        style="font-size: 25px;text-align: center;margin-top: 10px;padding-top: 10px;margin-bottom: 7px;padding-bottom: 16px;">
+                        تصحيح تلاوة</h2>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    <section class="secondG" id="about">
+        <div class="container">
+            <h2 class="text-center mb-5 pb-5">مَن تُقى</h2>
+        </div>
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12 align-self-center">
+                    <h3 class="text-center">
+                        تُقى: هو موقع إلكتروني، يهدف لتنظيم وتسهيل مهام معلم القرآن الكريم في دور التحفيظ حيث ينقسم إلى
+                        قسمين بشكل أساسي (الحفظ، والتلاوة). وغيرها من الوظائف كإعداد التقارير<br>والتحضير، وتسجيل
+                        البيانات الخاصة بالطلبة والمقررات</h3>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    <section id="contact">
+        <div class="container">
+            <h2 class=" text-center mb-5 pb-4">اتصل بنا</h2>
+            <div class="row text-center">
+                <div class="col-lg-8 mx-auto">
+
+                    <form id="contactForm" name="sentMessage">
+
+                        <div class="control-group m-2 p-2">
+                            <div class="form-floating controls">
+                                <input class="form-control" type="text" id="name" placeholder=" الاسم كامل">
+                            </div>
+                        </div>
+
+                        <div class="control-group m-2 p-2">
+                            <div class="form-floating controls " id="placeEmail"><input class="form-control "
+                                    type="email" id="email" required="" placeholder="البريد الإلكتروني">
+                            </div>
+                        </div>
+
+
+                        <div class="control-group m-2 p-2">
+                            <div class="form-floating controls"><input class="form-control" type="tel" id="phone"
+                                    required="" placeholder="رقم الهاتف"></div>
+                        </div>
+
+                        <div class="control-group m-2 p-2">
+                            <div class="form-floating controls "><textarea class="form-control" id="message" required=""
+                                    placeholder="نص الرسالة" style="height: 150px;"></textarea>
+                            </div>
+                        </div>
+                        <button class="btn btn-xl" id="sendMessageButton" type="submit">إرسال</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+
+    <footer class="text-center footer">
+        <div class="container">
+            <div class="row justify-content-center" dir="ltr">
+                <div class="col-md-4 col-lg-4 mb-5 mb-lg-0" style="padding-top: 31px;">
+                    <ul class="list-inline">
+                        <li class="list-inline-item"><a
+                                class="btn btn-outline-light text-center btn-social rounded-circle" role="button"
+                                href="#"><i class="fa fa-facebook fa-fw"></i></a></li>
+                        <li class="list-inline-item"><a
+                                class="btn btn-outline-light text-center btn-social rounded-circle" role="button"
+                                href="#"><i class="fa fa-instagram fa-fw"></i></a></li>
+                        <li class="list-inline-item"><a
+                                class="btn btn-outline-light text-center btn-social rounded-circle" role="button"
+                                href="#"><i class="fa fa-twitter fa-fw"></i></a></li>
+
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="text-center pt-4">
+            <p>جميع الحقوق محفوظة</p>
+        </div>
+    </footer>
+
+
+
+
+
+
+
+
+
+
+    <div class="d-lg-none scroll-to-top position-fixed rounded"><a class="text-center d-block rounded  "
+            href="#page-top"><i class="fa fa-chevron-up"></i></a></div>
+
+
+    <div class="modal text-center" role="dialog" tabindex="-1" id="portfolio-modal-1">
+        <div class="modal-dialog modal-lg" role="document">
+            <div class="modal-content">
+                <div class="modal-header"><button type="button" class="btn-close" data-bs-dismiss="modal"
+                        aria-label="Close"></button></div>
+                <div class="modal-body">
+                    <div class="container text-center">
+                        <div class="row">
+                            <div class="col-lg-8 mx-auto">
+                                <h2 class=" text-secondary mb-0">Project Name</h2>
+                                   <img class="img-fluid mb-5"
+                                    src="{%static '/img/portfolio/cake.png' %}">
+                                <p class="mb-5">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Mollitia neque
+                                    assumenda ipsam nihil, molestias magnam, recusandae quos quis inventore quisquam
+                                    velit asperiores, vitae? Reprehenderit soluta, eos quod consequuntur itaque. Nam.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <div class="modal text-center" role="dialog" tabindex="-1" id="portfolio-modal-2">
+        <div class="modal-dialog modal-lg" role="document">
+            <div class="modal-content">
+                <div class="modal-header"><button type="button" class="btn-close" data-bs-dismiss="modal"
+                        aria-label="Close"></button></div>
+                <div class="modal-body">
+                    <div class="container text-center">
+                        <div class="row">
+                            <div class="col-lg-8 mx-auto">
+                                <h2 class=" text-secondary mb-0">Project Name</h2>
+                                   <img class="img-fluid mb-5"
+                                    src="{%static '/img/portfolio/cake.png' %}">
+                                <p class="mb-5">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Mollitia neque
+                                    assumenda ipsam nihil, molestias magnam, recusandae quos quis inventore quisquam
+                                    velit asperiores, vitae? Reprehenderit soluta, eos quod consequuntur itaque. Nam.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="modal text-center" role="dialog" tabindex="-1" id="portfolio-modal-3">
+        <div class="modal-dialog modal-lg" role="document">
+            <div class="modal-content">
+                <div class="modal-header"><button type="button" class="btn-close" data-bs-dismiss="modal"
+                        aria-label="Close"></button></div>
+                <div class="modal-body">
+                    <div class="container text-center">
+                        <div class="row">
+                            <div class="col-lg-8 mx-auto">
+                                <h2 class="text-secondary mb-0">الحفظ</h2>
+                                   <img class="img-fluid mb-5"
+                                    src="{%static '/img/portfolio/cake.png' %}">
+                                <p class="lead shadow mb-5">يساعدك موقع تُقى في متابعة حفظ القرآن وذلك من خلال
+                                    طريقتين:<br>متابعة تقييمك على الموقع في حال حضورك لدار التحفيظ -<br><br>إرسال تسجيل
+                                    صوتي لوردك المطلوب تسميعه وتلقي تقييم عليه في حال غيابك لعذر عن الدار</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer pb-5"><a class="btn   btn-lg mx-auto rounded-pill portfolio-modal-dismiss"
+                        role="button" data-bs-dismiss="modal"><i class="fa fa-close"></i>&nbsp;إغلاق</a></div>
+            </div>
+        </div>
+    </div>
+    <div class="modal text-center" role="dialog" tabindex="-1" id="portfolio-modal-4">
+        <div class="modal-dialog modal-lg" role="document">
+            <div class="modal-content">
+                <div class="modal-header"><button type="button" class="btn-close" data-bs-dismiss="modal"
+                        aria-label="Close"></button></div>
+                <div class="modal-body">
+                    <div class="container text-center">
+                        <div class="row">
+                            <div class="col-lg-8 mx-auto">
+                                <h2 class="text-secondary mb-0">Project Name</h2>
+                                   <img class="img-fluid mb-5"
+                                    src="{%static '/img/portfolio/cake.png' %}">
+                                <p class="mb-5">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Mollitia neque
+                                    assumenda ipsam nihil, molestias magnam, recusandae quos quis inventore quisquam
+                                    velit asperiores, vitae? Reprehenderit soluta, eos quod consequuntur itaque. Nam.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="modal text-center" role="dialog" tabindex="-1" id="portfolio-modal-5">
+        <div class="modal-dialog modal-lg" role="document">
+            <div class="modal-content">
+                <div class="modal-header"><button type="button" class="btn-close" data-bs-dismiss="modal"
+                        aria-label="Close"></button></div>
+                <div class="modal-body">
+                    <div class="container text-center">
+                        <div class="row">
+                            <div class="col-lg-8 mx-auto">
+                                <h2 class="text-secondary mb-0">Project Name</h2>
+                                   <img class="img-fluid mb-5"
+                                    src="{%static '/img/portfolio/cake.png' %}">
+                                <p class="mb-5">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Mollitia neque
+                                    assumenda ipsam nihil, molestias magnam, recusandae quos quis inventore quisquam
+                                    velit asperiores, vitae? Reprehenderit soluta, eos quod consequuntur itaque. Nam.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="modal text-center" role="dialog" tabindex="-1" id="portfolio-modal-6">
+        <div class="modal-dialog modal-lg" role="document">
+            <div class="modal-content">
+                <div class="modal-header"><button type="button" class="btn-close" data-bs-dismiss="modal"
+                        aria-label="Close"></button></div>
+                <div class="modal-body">
+                    <div class="container text-center">
+                        <div class="row">
+                            <div class="col-lg-8 mx-auto">
+                                <h2 class="text-secondary mb-0">Project Name</h2>
+                                   <img class="img-fluid mb-5"
+                                    src="{%static '/img/portfolio/cake.png' %}">
+                                <p class="mb-5">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Mollitia neque
+                                    assumenda ipsam nihil, molestias magnam, recusandae quos quis inventore quisquam
+                                    velit asperiores, vitae? Reprehenderit soluta, eos quod consequuntur itaque. Nam.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src={%static '/bootstrap/js/bootstrap.min.js' %}></script>
+    <script src={%static '/js/bs-init.js' %}></script>
+    <script src={%static '/js/freelancer.js' %}></script>
+</body>
+
+</html>

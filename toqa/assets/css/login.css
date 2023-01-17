@@ -1,0 +1,13 @@
+.formLogin{
+    background-color: #06543c;
+    border: solid 1px;
+}
+
+.btn1{
+    width: 119.5px;
+    background-color: #06543c;
+}
+.btn1:hover{
+    border: solid 2px;
+
+}

@@ -1,0 +1,293 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+    <title>Home - تُـقى</title>
+    <link rel="stylesheet" href={%static '/bootstrap/css/bootstrap.min.css' %}>
+
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat:400,700&amp;display=swap">
+    <link rel="stylesheet"
+        href="https://fonts.googleapis.com/css?family=Lato:400,700,400italic,700italic&amp;display=swap">
+
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Almarai&amp;display=swap">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Amiri&amp;display=swap">
+
+    <link rel="stylesheet" href={%static '/fonts/font-awesome.min.css' %}>
+    <link rel="stylesheet" href={%static '/css/animate.min.css' %}>
+    <link rel="stylesheet" href={%static '/css/home.css' %}>
+
+    <link rel="stylesheet" href={%static '/css/header.css' %} type="text/css">
+
+    <link rel="stylesheet" href={%static "/css/footer.css" %} type="text/css">
+    <link rel="stylesheet" href={%static "/css/management.css" %} type="text/css">
+
+    <link rel="stylesheet" href={%static '/css/Login-Form-Basic-icons.css' %}>
+    <link rel="stylesheet" href={%static '/css/login.css' %}>
+
+</head>
+
+<body id="page-top" data-bs-spy="scroll" data-bs-target="#mainNav" data-bs-offset="72">
+
+    <header class="text-center masthead first">
+        <nav class="navbar navbar-expand-lg fixed-top" id="mainNav">
+            <div class="container-fluid">
+
+                <div><a class="navbar-brand" href="{% url 'home' %}">
+                        <img id="logo" src="{%static '/img/toqalogo.png' %}" alt="logo">
+                    </a>
+                </div>
+
+
+                <button data-bs-toggle="collapse" data-bs-target="#navbarResponsive"
+                    class="navbar-toggler navbar-toggler-right rounded" aria-controls="navbarResponsive"
+                    aria-expanded="false" aria-label="Toggle navigation">
+                    <i class="fa fa-bars"></i>
+
+                </button>
+
+
+                <div class="collapse navbar-collapse text-center" id="navbarResponsive" dir="rtl">
+                    <ul class="navbar-nav ">
+
+                        <li class="nav-item "><a class="nav-link rounded" href="{% url 'home' %}#page-top">الرئيسة</a>
+                        </li>
+
+                        {% if user.is_authenticated %}
+
+
+                        <li>
+                            <div class="dropdown ">
+                                <a class="active" href="#" role="button" id="dropdownMenuLink" data-bs-toggle="dropdown"
+                                    aria-expanded="false">
+                                    {{user.username}}
+                                </a>
+                                <ul class="dropdown-menu mt-3" aria-labelledby="dropdownMenuLink">
+
+                                    {% if user.is_staff %}
+
+                                    <li><a class="dropdown-item  text-center rounded">
+                                            لوحة التحكم </a></li>
+                                    {%else%}
+                                    <li><a class="dropdown-item  text-center rounded">
+                                            صفحة الطالب </a></li>
+                                    {% endif %}
+
+
+                                    <li><a class="dropdown-item text-center rounded"> الملف الشخصي</a></li>
+
+                                    <li><a class="dropdown-item text-center rounded" href="{% url 'logout' %}">تسجيل
+                                            الخروج</a></li>
+
+                                </ul>
+                            </div>
+                        </li>
+
+                        {%else%}
+                        <li class="nav-item mx-0 mx-lg-1"><a
+                                class="nav-link text-center justify-content-center align-items-center align-content-center align-self-center mx-auto py-3 px-0 px-lg-3 rounded"
+                                href="{% url 'login' %}#login1">تسجيل الدخول</a></li>
+                        {%endif%}
+
+                    </ul>
+                </div>
+            </div>
+        </nav>
+
+
+        <div class="container"><img class="shadow-sm mx-auto mb-5" data-bss-hover-animate="bounce"
+                src="{%static '/img/toqalogo.png' %}" width="265" height="265" loading="eager">
+            <h2 class="mb-0">اقْرَأْ وَارْتَقِ</h2>
+        </div>
+    </header>
+
+
+    <section id="services" class="services section-bg">
+        <div class="container aos-init aos-animate" data-aos="fade-up">
+
+            <div class="section-title m-4 text-center">
+                <h2>الإدارة</h2>
+            </div>
+
+            <div class="row">
+
+                <div class="col-xl-3 col-md-6 d-flex  mb-5 align-items-stretch aos-init aos-animate" data-aos="zoom-in"
+                    data-aos-delay="100">
+                    <a href="#create-modal-1" data-bs-toggle="modal">
+                        <div class="icon-box">
+                            <div class="icon"><i class="fas fa-dove"></i></div>
+                            <h4>إضافة مستخدمين </h4>
+                        </div>
+                    </a>
+                </div>
+
+
+                <div class="col-xl-3 col-md-6 mb-5 d-flex align-items-stretch aos-init aos-animate " data-aos="zoom-in"
+                    data-aos-delay="100">
+                    <a href="TrainingFrom.html">
+                        <div class="icon-box">
+                            <div class="icon"><i class="fas fa-dove"></i></div>
+                            <h4>اسم فرصة التدريب</h4>
+                            <p>هنا نضع وصفًا لفرصة التدريب</p>
+                        </div>
+                    </a>
+                </div>
+                <div class="col-xl-3 col-md-6 mb-5 d-flex align-items-stretch aos-init aos-animate " data-aos="zoom-in"
+                    data-aos-delay="100">
+                    <a href="TrainingFrom.html">
+                        <div class="icon-box">
+                            <div class="icon"><i class="fas fa-dove"></i></div>
+                            <h4>اسم فرصة التدريب</h4>
+                            <img src="/img/2-1536x864.png" alt="" width="100%">
+                            <p>هنا نضع وصفًا لفرصة التدريب</p>
+                        </div>
+                    </a>
+                </div>
+                <div class="col-xl-3 col-md-6 mb-5 d-flex align-items-stretch aos-init aos-animate " data-aos="zoom-in"
+                    data-aos-delay="100">
+                    <a href="TrainingFrom.html">
+                        <div class="icon-box">
+                            <div class="icon"><i class="fas fa-dove"></i></div>
+                            <h4>اسم فرصة التدريب</h4>
+                            <img src="/img/2-1536x864.png" alt="" width="100%">
+                            <p>هنا نضع وصفًا لفرصة التدريب</p>
+                        </div>
+                    </a>
+                </div>
+
+                <div class="col-xl-3 col-md-6 mb-5 d-flex align-items-stretch aos-init aos-animate " data-aos="zoom-in"
+                    data-aos-delay="100">
+                    <a href="TrainingFrom.html">
+                        <div class="icon-box">
+                            <div class="icon"><i class="fas fa-dove"></i></div>
+                            <h4>اسم فرصة التدريب</h4>
+                            <img src="/img/2-1536x864.png" alt="" width="100%">
+                            <p>هنا نضع وصفًا لفرصة التدريب</p>
+                        </div>
+                    </a>
+                </div>
+
+                <div class="col-xl-3 col-md-6 mb-5 d-flex align-items-stretch aos-init aos-animate " data-aos="zoom-in"
+                    data-aos-delay="100">
+                    <a href="TrainingFrom.html">
+                        <div class="icon-box">
+                            <div class="icon"><i class="fas fa-dove"></i></div>
+                            <h4>اسم فرصة التدريب</h4>
+                            <img src="/img/2-1536x864.png" alt="" width="100%">
+                            <p>هنا نضع وصفًا لفرصة التدريب</p>
+                        </div>
+                    </a>
+                </div>
+                <div class="col-xl-3 col-md-6 mb-5 d-flex align-items-stretch aos-init aos-animate " data-aos="zoom-in"
+                    data-aos-delay="100">
+                    <a href="TrainingFrom.html">
+                        <div class="icon-box">
+                            <div class="icon"><i class="fas fa-dove"></i></div>
+                            <h4>اسم فرصة التدريب</h4>
+                            <img src="/img/2-1536x864.png" alt="" width="100%">
+                            <p>هنا نضع وصفًا لفرصة التدريب</p>
+                        </div>
+                    </a>
+                </div>
+                <div class="col-xl-3 col-md-6 mb-5 d-flex align-items-stretch aos-init aos-animate " data-aos="zoom-in"
+                    data-aos-delay="100">
+                    <a href="TrainingFrom.html">
+                        <div class="icon-box">
+                            <div class="icon"><i class="fas fa-dove"></i></div>
+                            <h4>اسم فرصة التدريب</h4>
+                            <img src="/img/2-1536x864.png" alt="" width="100%">
+                            <p>هنا نضع وصفًا لفرصة التدريب</p>
+                        </div>
+                    </a>
+                </div>
+
+
+
+
+
+            </div>
+
+        </div>
+    </section>
+
+
+
+    <footer class="text-center footer">
+        <div class="container">
+            <div class="row justify-content-center" dir="ltr">
+                <div class="col-md-4 col-lg-4 mb-5 mb-lg-0" style="padding-top: 31px;">
+                    <ul class="list-inline">
+                        <li class="list-inline-item"><a
+                                class="btn btn-outline-light text-center btn-social rounded-circle" role="button"
+                                href="#"><i class="fa fa-facebook fa-fw"></i></a></li>
+                        <li class="list-inline-item"><a
+                                class="btn btn-outline-light text-center btn-social rounded-circle" role="button"
+                                href="#"><i class="fa fa-instagram fa-fw"></i></a></li>
+                        <li class="list-inline-item"><a
+                                class="btn btn-outline-light text-center btn-social rounded-circle" role="button"
+                                href="#"><i class="fa fa-twitter fa-fw"></i></a></li>
+
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="text-center pt-4">
+            <p>جميع الحقوق محفوظة</p>
+        </div>
+    </footer>
+
+
+
+
+
+
+
+
+    <div class="modal text-center" role="dialog" tabindex="-1" id="create-modal-1">
+        <div class="modal-dialog modal-lg" role="document">
+            <div class="modal-content">
+                <div class="modal-header"><button type="button" class="btn-close" data-bs-dismiss="modal"
+                        aria-label="Close"></button></div>
+
+
+                <div class="modal-body">
+
+                    <div class="container text-center">
+                        <div class="row">
+                            <div class="col-lg-8 mx-auto">
+                                <h2 class="mb-0">إضافة مستخدمين جدد</h2>
+
+                                <form Method="POST" novalidate id="LoginForm">
+                                    {% csrf_token %}
+                                    <div class="mb-2 p-2">
+                                        {{form.as_p}}
+
+                                    </div>
+
+                                </form>
+
+                                <button class="btn btn1 d-flex d-xl-flex justify-content-center mx-auto " type="submit"
+                                    form="LoginForm">إضافة</button>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+
+
+
+
+    <script src={%static '/bootstrap/js/bootstrap.min.js' %}></script>
+    <script src={%static '/js/bs-init.js' %}></script>
+    <script src={%static '/js/freelancer.js' %}></script>
+</body>
+
+</html>
